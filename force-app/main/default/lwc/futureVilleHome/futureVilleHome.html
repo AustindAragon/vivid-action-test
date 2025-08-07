@@ -1,0 +1,217 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 08-07-2025
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class='homediv'>
+
+        <header id="header" class="w-100 float-start header">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <nav class="navbar navbar-expand-lg mt-2 mb-2">
+                            <div class="container-fluid" style="display: flex !important;">
+                                <a class="navbar-brand" href="home.php">
+                                    <img src={logoImage} class="logo">
+                                </a>
+                                <!-- <button class="navbar-toggler" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"><i class="fa fa-bars mt-1"></i></span>
+                            </button> -->
+                                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-5 me-mobile ms-auto mb-2 mb-lg-0">
+                                        <li class="nav-item ms-4 ms-mobile text-center">
+                                            <a href="#" class="btn btn-n m-auto info--btn">Info</a>
+                                        </li>
+                                        <li class="nav-item ms-4 ms-mobile text-center">
+                                            <a href="#" class="btn btn-n m-auto login-btn">Log In</a>
+                                        </li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header end -->
+
+        <!-- main start -->
+        <main>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item slider-1 active bg">
+                        <div class="container">
+                            <div class="futurevalley-content mt-5">
+                                <h3>Welcome!!!!! How may we serve you today?</h3>
+                                <span class="search-bar p-5">
+                                    <input type="text" name="" id="" onchange={handleChange} onkeypress={handleEnter}>
+                                    <div class="magnifying">
+                                        <lightning-icon class="fa-solid white-utility-icon" icon-name="utility:search"
+                                            size="small" onclick={handleSearch}></lightning-icon>
+                                        <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                                    </div>
+
+                                </span>
+
+                                <div class="d-flex wrap-flex">
+
+                                    <div class="cardBox">
+                                        <div class="card">
+                                            <img src={applyImage} alt="">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <h2>Apply For Permit</h2>
+                                            
+                                            <div class="content">
+                                                <!-- <p>Keep eye on your account and keep it update for better experiance</p> -->
+                                                <button onclick={redirect} data-value='Start_Application'>
+                                                    <lightning-icon class="fa-solid white-utility-icon"
+                                                        icon-name="utility:forward"
+                                                        size="small"></lightning-icon></button>
+
+                                                <!-- <button><i class="fa-solid fa-arrow-right"></i></button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cardBox">
+                                        <div class="card">
+                                            <img src={licenseImage} alt="">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <h2>Apply For License</h2>
+                                          
+                                            <div class="content">
+                                                <!-- <p>Keep eye on your account and keep it update for better experiance</p> -->
+                                                <button onclick={redirect}
+                                                    data-value='Applyforliscencehome__c'><lightning-icon
+                                                        class="fa-solid white-utility-icon" icon-name="utility:forward"
+                                                        size="small"></lightning-icon></button>
+
+                                                <!-- <button><i class="fa-solid fa-arrow-right"></i></button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cardBox">
+                                        <div class="card">
+                                            <img src={requestImage} alt="">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <h2>Request & Complaints</h2>
+                                          
+                                            <div class="content">
+                                                <!-- <p>Keep eye on your account and keep it update.</p> -->
+                                                <button onclick={redirect}
+                                                data-value='Citizen_Complaint__c'> <lightning-icon class="fa-solid white-utility-icon"
+                                                        icon-name="utility:forward"
+                                                        size="small"></lightning-icon></button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cardBox">
+                                        <div class="card">
+                                            <img src={accountImage} alt="">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <h2>My Account</h2>
+                                            <div class="content">
+                                                <!-- <p>Keep eye on your account and keep it update for better experiance</p> -->
+                                                <button> <lightning-icon class="fa-solid white-utility-icon"
+                                                        icon-name="utility:forward"
+                                                        size="small"></lightning-icon></button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cardBox">
+                                        <div class="card">
+                                            <img src={applyImage} alt="">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <h2>Planning and Development</h2>
+                                            <div class="content">                                                
+                                                <button onclick={redirect}
+                                                data-value='Planning_Development__c'> <lightning-icon class="fa-solid white-utility-icon"
+                                                        icon-name="utility:forward"
+                                                        size="small"></lightning-icon></button>
+
+                                            </div>
+                                            <!-- <p>Keep eye on your account and keep it update for better experiance</p> -->
+                                            <!-- <div class="content">
+                                                <lightning-icon class="fa-solid white-utility-icon"
+                                                        icon-name="utility:forward"
+                                                        size="small"></lightning-icon></button>
+
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="cardBox">
+                                        <div class="card">
+                                            <img src={infoImage} alt="">
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <h2>Not sure where to start?</h2>
+                                            <div class="content">                                                
+                                                <button onclick={redirect}
+                                                data-value='Application_Recommendation__c'> <lightning-icon class="fa-solid white-utility-icon"
+                                                        icon-name="utility:forward"
+                                                        size="small"></lightning-icon></button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer class="footer">
+                            <div class="container ">
+                                <div class="footer-content">
+                                    <div>
+                                        <p class="nowrapClass">Copyright ©2023 City Of Futureville. All Rights Reserved
+                                        </p>
+                                    </div>
+                                    <div class="footer-social">
+                                        <svg height="18px" width="51px" fill="white" class="fa-brands fa-facebook-f"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                            <path
+                                                d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                                        </svg>
+
+                                        <svg height="19px" fill="white" class="fa-brands fa-instagram"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                            <path
+                                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                                        </svg>
+                                    </div>
+                                    <div class="footer-social d-flex justify-content-between align-items-center">
+                                        <p>Contact Us </p>
+                                        <p>Disclaimer</p>
+                                        <p>Info@cityoffutureville.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- main end -->
+    </div>
+
+</template>
