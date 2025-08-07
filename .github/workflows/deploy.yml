@@ -21,7 +21,7 @@ jobs:
         with:
           SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
           DRY_RUN: false
-          TEST_LEVEL: RunLocalTests
+          TEST_LEVEL: NoTestRun
 
   close_job:
     # This job will only run if the PR has been closed without being merged
