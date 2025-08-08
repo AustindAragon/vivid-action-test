@@ -38,5 +38,4 @@ jobs:
             --wait 30 \
             --test-level NoTestRun \
             --verbose \
-            --dry-run
 
