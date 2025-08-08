@@ -1,12 +1,7 @@
-name: Validate Production Pull Request
+name: Validate Production Deployment
 
 on:
   pull_request:
-    branches:
-      - main
-    paths:
-      - 'force-app/**'
-  push:
     branches:
       - main
     paths:
@@ -17,9 +12,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Validate on ${{ vars.ENVIRONMENT_NAME }}
-        uses: jawills/sf-deploy@v1.0
-        with:
-          SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
-          DRY_RUN: false
-          TEST_LEVEL: NoTestRun
+
+      - name: Install Salesforce CLI
+        run: |
+          npm install -g @salesforce/cli
+          sf --version
+
+      - name: Authenticate to Salesforce
+        run: |
+          sf org login sfdx-url --set-default --sfdx-url-file <(echo "${{ secrets.SFDX_AUTH_URL }}")
+
+      - name: Generate package.xml
+        run: |
+          sf project generate manifest --source-dir force-app --output-dir manifest
+
+      - name: Validate Deployment (Dry Run)
+        run: |
+          sf project deploy start \
+            --manifest manifest/package.xml \
+            --wait 30 \
+            --test-level NoTestRun \
+            --verbose \
+            --dry-run
+

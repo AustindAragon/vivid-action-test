@@ -1,6 +1,5 @@
 name: Close Production Pull Request
 
-# Only trigger on pull request closed events
 on:
   pull_request:
     types: [closed]
@@ -11,22 +10,35 @@ on:
 
 jobs:
   merge_job:
-    # This job will only run if the PR has been merged
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Deploy on ${{ vars.ENVIRONMENT_NAME }}
-        uses: jawills/sf-deploy@v1.0
-        with:
-          SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
-          DRY_RUN: false
-          TEST_LEVEL: NoTestRun
+
+      - name: Install Salesforce CLI
+        run: |
+          npm install -g @salesforce/cli
+          sf --version
+
+      - name: Authenticate to Salesforce
+        run: |
+          sf org login sfdx-url --set-default --sfdx-url-file <(echo "${{ secrets.SFDX_AUTH_URL }}")
+
+      - name: Generate package.xml
+        run: |
+          sf project generate manifest --source-dir force-app --output-dir manifest
+
+      - name: Deploy to Production
+        run: |
+          sf project deploy start \
+            --manifest manifest/package.xml \
+            --wait 30 \
+            --test-level NoTestRun \
+            --verbose
 
   close_job:
-    # This job will only run if the PR has been closed without being merged
     if: github.event.pull_request.merged == false
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "PR #${{ github.event.number }} has been closed without being merged."
+      - run: echo "PR #${{ github.event.number }} has been closed without being merged."
+
